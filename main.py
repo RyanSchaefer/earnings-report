@@ -42,5 +42,5 @@ message.attach(MIMEText(format_report(y.earnings_between(date_from, date_to)), "
 
 context = ssl.create_default_context()
 with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
-    server.login(sys.argv[1], getpass.getpass("Enter email password:"))
+    server.login(sys.argv[1], sys.argv[2])
     server.sendmail(sys.argv[1], sys.argv[1], message.as_string())
